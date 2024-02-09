@@ -93,14 +93,10 @@ gallery.addEventListener("click", galleryClick)
 function galleryClick(event) {
     if (event.target.nodeName === "IMG") { 
         event.preventDefault()
-        event.target.src = event.target.dataset.source
     basicLightbox.create(`<img
-     class="gallery-image"
-     src="${event.target.src}"
-      data-source="${event.target.dataset.source}"
+     src="${event.target.dataset.source}"
     alt="${event.target.alt}"
-    />`,
-        // { onShow: () => event.target.src = event.target.dataset.source }
+    />`
     ).show()
     console.log(event.target.dataset.source)
     }
