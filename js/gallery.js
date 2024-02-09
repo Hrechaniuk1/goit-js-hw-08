@@ -91,17 +91,20 @@ addImages(images)
 gallery.addEventListener("click", galleryClick)
 
 function galleryClick(event) {
-    event.preventDefault()
+    if (event.target.nodeName === "IMG") { 
+        event.preventDefault()
+        event.target.src = event.target.dataset.source
     basicLightbox.create(`<img
      class="gallery-image"
      src="${event.target.src}"
       data-source="${event.target.dataset.source}"
     alt="${event.target.alt}"
     />`,
-        { onShow: () => event.target.src = event.target.dataset.source }
+        // { onShow: () => event.target.src = event.target.dataset.source }
     ).show()
     console.log(event.target.dataset.source)
-    console.log(event.target.src)
+    }
+  
 }
 
 
